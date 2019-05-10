@@ -37,7 +37,6 @@ public class UserController {
            return "/WEB-INF/jsp/login.jsp";
        }
 
-
         return "/WEB-INF/jsp/loginsuccess.jsp";
     }
 

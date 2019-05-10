@@ -25,7 +25,6 @@ public class UserController {
     public String toLoginPage(){
         return "/WEB-INF/jsp/login.jsp";
     }
-
     @RequestMapping(value = "doLogin",method = RequestMethod.POST)
     public String doLogin(@RequestParam String username, @RequestParam String password, HttpServletRequest request, ModelMap map){
 

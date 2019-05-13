@@ -3,11 +3,29 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
+  <!--配置监听器-->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-  
+
+  <!--字符编码过滤器配置-->
+  <filter>
+    <filter-name>SetCharacterEncoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <!--配置filter的映射-->
+  <filter-mapping>
+    <filter-name>SetCharacterEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--
+     启动spring容器,并且需要配置Spring的配置文件，这样Spring容器才能够正确的启动
+ -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath*:applicationContext.xml</param-value>
@@ -30,19 +48,7 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-  <!--<filter>-->
-    <!--<filter-name>SetCharacterEncoding</filter-name>-->
-    <!--<filter-class>com.config.SetCharacterEncodingFilter</filter-class>-->
-    <!--<init-param>-->
-      <!--<param-name>encoding</param-name>-->
-      <!--<param-value>UTF-8</param-value>-->
-    <!--</init-param>-->
-  <!--</filter>-->
 
-  <!--<filter-mapping>-->
-    <!--<filter-name>SetCharacterEncoding</filter-name>-->
-    <!--<url-pattern>/*</url-pattern>-->
-  <!--</filter-mapping>-->
 
   <!--<jsp-config>-->
   <!--<taglib>-->
